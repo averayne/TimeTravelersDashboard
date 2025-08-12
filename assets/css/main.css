@@ -1,5 +1,5 @@
 body {
-      background-image:  url('/images/apibkgrnd.jpg'); /* adjust path based on your CSS file location */
+      background-image:  url("assets/images/GearBackground.jpg"); /* adjust path based on your CSS file location */
       color: #f0e6d2;
       font-family: 'Cinzel', serif;
        
@@ -10,7 +10,7 @@ body {
       
       color: #f0e6d2;
       font-family: 'Cinzel', serif;
-      background-image: url('images/apibkgrnd.jpg'); /* Replace with actual image */
+      background-image: url("assets/images/GearBackground.jpg"); /* Replace with actual image */
       background-size: cover;
       background-attachment: fixed;
     }

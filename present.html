@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-  </head>
-  <body>
-    <script src="assets/js/script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Present Page</title>
+  <link rel="stylesheet" href="assets/css/present.css">
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="hero">
+    <h1>The Present</h1>
+  </header>
+
+  <main class="content">
+    <div class="event-section">
+      <button id="load-event">Show Event</button>
+      <div id="event-output" class="info-box"></div>
+    </div>
+    <div class="weather-section">
+      <button id="load-weather">Show Weather</button>
+      <div id="weather-output" class="info-box"></div>
+    </div>
+  </main>
+
+  <nav class="navigation">
+    <button class="nav-btn" onclick="navigateTo('past.html')">past</button>
+    <button class="nav-btn" onclick="navigateTo('future.html')">future</button>
+    <button class="nav-btn" onclick="navigateTo('present.html')">present</button>
+  </nav>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>

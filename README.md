@@ -15,7 +15,7 @@ Chronicles of the ChronoVoyoger
 
 | Name            | Role                 | Page Responsibility  |
 |-----------------|----------------------|-----------------------|
-| Avery           | Project Lead         | Present      |
+| Avery           | Project Lead         | Present               |
 | John            | Developer            | Control Center        |
 | Jessica         | Developer            | Past                  |
 | Quincy          | Developer            | Future                |

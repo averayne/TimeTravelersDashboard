@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Cinzel', serif;
-  background-image: url("assets/images/Martix-brown-clock.png");
+  background-image: url("../Images/Martix-brown-clock.png");
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
@@ -32,8 +32,7 @@ h2 {
 }
 
 .future-event-container,
-.famous-people-container,
-.future-weather-container {
+.famous-people-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -42,7 +41,7 @@ h2 {
 }
 
 .card {
-  background-image: url("assets/Images/hologram-frame2.jpg");
+  background-image: url("../Images/hologram-frame2.jpg");
     background: rgba(26, 26, 26, 0.9); 
   border: 1px solid #bb6f33;
   box-shadow: 0 0 12px rgba(255, 179, 71, 0.3);

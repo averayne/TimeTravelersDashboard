@@ -1,4 +1,4 @@
-/* Google Fonts */
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
 
@@ -25,15 +25,15 @@ body {
 }
 
 .past-title {
-  font-family: 'Almendra SC', serif;
+  font-family: Arial, sans-serif;
   font-size: 7rem;
   margin: 0;
 }
 
 /* Spin Gears */
 .gear {
-  width: 50px;
-  height: 50px;
+  width: 150px;
+  height: 150px;
   animation: spin 8s linear infinite;
 }
 
@@ -59,7 +59,7 @@ body {
   border-radius: 5px;
 }
 
-/* Event and Person Box */
+/* Event and Person box */
 .content-row {
   display: flex;
   justify-content: center;
@@ -74,11 +74,11 @@ body {
   background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
   padding: 15px;
   border-radius: 10px;
-  border: 1px solid #d4af37;
+  border: 1px solid #A27C3C; 
   min-height: 200px;
 }
 
-/* Quote section */
+/* Quote Box */
 #historical-quote {
   font-family: 'Monsieur La Doulaise', cursive;
   font-size: 2rem;
@@ -86,7 +86,7 @@ body {
   margin-top: 20px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid #d4af37;
+  border: 1px solid #A27C3C; 
   border-radius: 10px;
   margin-left: 20px;
   margin-right: 20px;

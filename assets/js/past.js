@@ -1,5 +1,5 @@
 // API Configuration
-const API_KEY = "PUT-API-KEY-HERE"; // API Ninja Key
+const API_KEY = "5pFrgnVpEVGJUUh7ScPbag==SjpLKQWO2VotbQmk"; // API Ninja Key
 
 // Set Variables
 const startYear = 1600;

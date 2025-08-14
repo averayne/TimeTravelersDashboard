@@ -1,12 +1,12 @@
 // API Configuration
-const API_KEY = "5pFrgnVpEVGJUUh7ScPbag==SjpLKQWO2VotbQmk"; // API Ninja Key
+const API_KEY = "5pFrgnVpEVGJUUh7ScPbag==SjpLKQWO2VotbQmk"; // API Ninjas key
 
 // Set Variables
 const startYear = 1600;
 const endYear = 2024;
 const defaultYear = 1800;
 
-// DOM Hooks
+// DOM Setup
 document.addEventListener("DOMContentLoaded", () => {
   const yearSelect = document.getElementById("year-selector");
   const eventBox = document.getElementById("historical-event");
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     yearSelect.appendChild(opt);
   }
 
-  // Make page update based on year chosen
+  // Update page on year change
   yearSelect.addEventListener("change", async () => {
     const year = yearSelect.value;
     if (!year) {
@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const [personRes, eventRes, quoteRes] = await Promise.allSettled([
       showPersonByYear(year),
       fetchRandomHistoricalEvent(year),
-      fetchHistoryQuote(),
+      fetchHistoryQuote(), // random quote, no category
     ]);
 
-    // Error catch for historical figure
+    // Error catch historical figure
     if (personRes.status === "fulfilled") {
       renderFigure(figureBox, year, personRes.value);
     } else {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       )}.</p>`;
     }
 
-    // Error catch for historical even
+    // Error catch historical event
     if (eventRes.status === "fulfilled") {
       renderEvent(eventBox, year, eventRes.value);
     } else {
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       )}.</p>`;
     }
 
-    // Error catch for random quote
+    // Error catch random quote
     if (quoteRes.status === "fulfilled") {
       renderQuote(quoteBox, quoteRes.value);
     } else {
@@ -75,34 +75,48 @@ document.addEventListener("DOMContentLoaded", () => {
   yearSelect.dispatchEvent(new Event("change"));
 });
 
-// Fetch Wikipedia API
-let latestReq = 0;
-
+// Fetch historical person from Wikipedia
 async function showPersonByYear(year) {
-  const q = `incategory:"${year} births"`;
-  const url = `https://api.wikimedia.org/core/v1/wikipedia/en/search/page?q=${encodeURIComponent(
-    q
-  )}&limit=1`;
+  // Create list of pages with birth year
+  const listURL =
+    `https://en.wikipedia.org/w/api.php` +
+    `?action=query&list=categorymembers&cmtitle=Category:${encodeURIComponent(
+      year
+    )}_births` +
+    `&cmtype=page&cmlimit=50&format=json&origin=*`;
 
-  const r = await fetch(url, {
-    headers: {
-      "Api-User-Agent": "YearLookupExample/1.0 (jessicaeitr@gmail.com)",
-    }, // Email required for API pull
+  const listRes = await fetch(listURL);
+  if (!listRes.ok) throw new Error(`Wiki list HTTP ${listRes.status}`);
+
+  const members = (await listRes.json()).query?.categorymembers;
+  if (!Array.isArray(members) || members.length === 0) return null;
+
+  // Pick a random one
+  const pick = members[Math.floor(Math.random() * members.length)];
+  const title = pick.title;
+
+  // Fetch summary
+  const sumURL = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(
+    title
+  )}`;
+  const sumRes = await fetch(sumURL, {
+    headers: { Accept: "application/json" },
   });
-  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  if (!sumRes.ok) throw new Error(`Wiki summary HTTP ${sumRes.status}`);
 
-  const page = (await r.json()).pages?.[0];
-  if (!page) return null;
+  const sum = await sumRes.json();
 
   return {
-    title: page.title,
-    description: page.description || "",
+    title,
+    description: sum.description || sum.extract || "",
     year: Number(year),
-    pageURL: `https://en.wikipedia.org/wiki/${encodeURIComponent(page.title)}`,
+    pageURL:
+      (sum.content_urls && sum.content_urls.desktop?.page) ||
+      `https://en.wikipedia.org/wiki/${encodeURIComponent(title)}`,
   };
 }
 
-// Fetch API Ninja Event
+// Fetch event from API Ninja
 async function fetchRandomHistoricalEvent(year) {
   const url = `https://api.api-ninjas.com/v1/historicalevents?year=${encodeURIComponent(
     year
@@ -117,20 +131,17 @@ async function fetchRandomHistoricalEvent(year) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
-// Fetch API Ninja Quote
+// Fetch random quote from API Ninja
 async function fetchHistoryQuote() {
-  const url = "https://api.api-ninjas.com/v1/quotes"; // random quote, no category
+  const url = "https://api.api-ninjas.com/v1/quotes"; // random quote
   const res = await fetch(url, { headers: { "X-Api-Key": API_KEY } });
-
-  if (!res.ok) {
-    throw new Error(`Quotes API error: ${res.status}`);
-  }
+  if (!res.ok) throw new Error(`Quotes API error: ${res.status}`);
 
   const arr = await res.json();
   return Array.isArray(arr) && arr.length > 0 ? arr[0] : null; // { quote, author, category? }
 }
 
-// Render Functions
+// Render all divs
 function renderFigure(container, year, person) {
   if (!person) {
     container.innerHTML = `<p>No historical figure found for ${escapeHTML(
@@ -147,7 +158,7 @@ function renderFigure(container, year, person) {
       person.description || "No short bio available"
     )}</p>
     <p><strong>Born:</strong> ${escapeHTML(String(person.year))}</p>
-  `;
+`;
 }
 
 function renderEvent(container, year, ev) {
@@ -173,12 +184,14 @@ function renderQuote(container, quote) {
   }
   container.innerHTML = `
     <h4>Quote</h4>
-    <blockquote style="margin:.5rem 0; font-style:italic;">“${escapeHTML(quote.quote)}”</blockquote>
+    <blockquote style="margin:.5rem 0; font-style:italic;">“${escapeHTML(
+      quote.quote
+    )}”</blockquote>
     <p>— ${escapeHTML(quote.author || "Unknown")}</p>
   `;
 }
 
-// Utility Functions
+// Utility functions
 function escapeHTML(str) {
   return String(str)
     .replaceAll("&", "&amp;")
@@ -187,6 +200,7 @@ function escapeHTML(str) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+
 function escapeAttr(str) {
   return String(str).replace(/"/g, "&quot;");
 }

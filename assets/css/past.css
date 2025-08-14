@@ -1,35 +1,93 @@
-/* Fonts  */
-@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&family=Monsieur+La+Doulaise&display=swap');
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
 
-.almendra-sc-regular {
-  font-family: "Almendra SC", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.monsieur-la-doulaise-regular {
-  font-family: "Monsieur La Doulaise", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
-
-/* Color Scheme */
-:root {
-    --color-bg: #1A0D02;
-    --color-primary: #8d6128;
-    --color-accent: #49270A;
-    --color-light: #0F1422;
-
-    background-color: var(--color-bg);
-}
-
-
+/* Page Styling */
 body {
-    color:#8d6128;
+  background-color: #1A0D02;
+  color: #A27C3C; 
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* Header */
+.past-header {
+  text-align: center;
+  margin-top: 20px;
+}
 
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
 
+.past-title {
+  font-family: Arial, sans-serif;
+  font-size: 7rem;
+  margin: 0;
+}
 
+/* Spin Gears */
+.gear {
+  width: 150px;
+  height: 150px;
+  animation: spin 8s linear infinite;
+}
 
+.gear-left {
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Year Dropdown */
+#year-selector {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 12px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #A27C3C; 
+  border: 1px solid #A27C3C; 
+  border-radius: 5px;
+}
+
+/* Event and Person box */
+.content-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.box {
+  flex: 1 1 300px;
+  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #A27C3C; 
+  min-height: 200px;
+}
+
+/* Quote Box */
+#historical-quote {
+  font-family: 'Monsieur La Doulaise', cursive;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #A27C3C; 
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

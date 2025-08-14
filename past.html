@@ -4,29 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta description="INSERT DESCRIPTION HERE." />
+    <meta name=""description" content="Chronovoyager's - Past">
     <title>Back to the past!</title>
     <link rel="stylesheet" href="assets/css/past.css" />
   </head>
   <body>
-    <h2>PAST</h2>
-    
-    <div class="past-spin-gear"></div>
-    <!-- 2 spinning gears next to the word past. May need to be static with spinning as a stretch goal. -->
+  <div class="past-header">
+    <div class="header-inner">
+      <img src="assets/images/gear-left.png" alt="" class="gear gear-left">
+      <h2 class="past-title">PAST</h2>
+      <img src="assets/images/gear-right.png" alt="" class="gear gear-right">
+    </div>
+  </div>
 
-    <select id="year-selector">
-      <option value =""> Select a year</option>
-    </select>
+  <select id="year-selector">
+    <option value="">Select a year</option>
+  </select>
 
-    <div id="historical-event">event</div>
-    <!-- News report will be on a piece of vintage style parchment. Pull from API if possible. -->
+  <div class="content-row">
+    <div id="historical-event" class="box">Event</div>
+    <div id="historical-figure" class="box">Figure</div>
+  </div>
 
+  <div id="historical-quote">Quote</div>
 
-    <div id="historical-figure">figure</div>
-
-    <div id="historical-quote">quote</div>
-
-    <div class="past-navigation-bar"></div>
+    <footer class="past-navigation-bar" role="contentinfo"></footer>
 
     <script src="assets/js/past.js"></script>
   </body>

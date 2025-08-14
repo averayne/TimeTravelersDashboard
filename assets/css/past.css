@@ -91,3 +91,27 @@ body {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.chrono-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.chrono-btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(145deg, #3a3a3a, #1f1f1f);
+  color: #f0c674;
+  border: 2px solid #f0c674;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chrono-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #f0c674;
+}

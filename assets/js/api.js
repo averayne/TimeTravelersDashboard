@@ -23,13 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateClockHands();
   setInterval(updateClockHands, 1000);
+
 });
 
-// Initial call to set hands immediately
-//updateClockHands();
-
-// Update every second
-setInterval(updateClockHands, 1000);
 
 
 async function fetchHistoryEvent() {
@@ -46,3 +42,27 @@ async function fetchHistoryEvent() {
     console.error(error);
   }
 }
+const weatherDiv = document.getElementById('weather');
+const leftClock = document.getElementById('leftClock');
+
+fetch('https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99277&current=temperature_2m,wind_speed_10m,precipitation&temperature_unit=fahrenheit')
+  .then(response => response.json())
+  .then(data => {
+    const temp = data.current.temperature_2m;
+    const wind = data.current.wind_speed_10m;
+    const rain = data.current.precipitation;
+
+    leftClock.textContent = `🌡️ ${temp} °F | 💨 ${wind} mph | 🌧️ ${rain} in`;
+  })
+  .catch(error => {
+    weatherDiv.textContent = 'Error fetching weather';
+    console.error(error);
+  });
+
+const centerClock = document.getElementById('centerClock');
+
+const now = new Date();
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = now.toLocaleDateString('en-US', options);
+
+centerClock.innerHTML = ` ${formattedDate.replace(',', '<br>')}`;

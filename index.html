@@ -1,134 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/API.css">
   <title>ChronoVoyager</title>
-  <link rel="stylesheet" href="assets/css/main.css" />
+  
   <style>
 
   </style>
 </head>
+
 <body>
-  <section class="api-output">
-    <h2>Live in Tulsa</h2>
-    <div id="weather">Loading...</div>
-    </section>
+
   </section>
   <header>
-    <h1>🕰️ ChronoVoyager</h1>
+    <h1>ChronoVoyager</h1>
     <p>Embark on a journey through time powered by code</p>
   </header>
+  <div class="header-spacer"> </div>
+  <section class="api-output">
+    <h2>Live in Tulsa</h2>
+  </section>
 
   <section class="clock-container">
-  <div class="circle" id="leftClock"></div>
-  <div class="circle" id="centerClock"></div>
-  <div class="circle" id="spinningClock">
-    <div class="clock-face">
-      <div class="hour-hand"></div>
-      <div class="minute-hand"></div>
-      <div class="second-hand"></div>
+    <div class="circle" id="leftClock"></div>
+
+    <div class="circle" id="centerClock"></div>
+
+    <div class="circle" id="spinningClock">
+
+
+      <div class="clock-face">
+        <div class="hour-hand"></div>
+        <div class="minute-hand"></div>
+        <div class="second-hand"></div>
+      </div>
     </div>
-  </div>
-</section>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    #history-event {
-      margin-top: 1em;
-      padding: 1em;
-      background: #222;
-      color: #eee;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-<body>
-  <button onclick="fetchHistoryEvent()">Reveal History</button>
-  <div id="history-event">Awaiting transmission...</div>
-
-  <script>
-    async function fetchHistoryEvent() {
-      try {
-        const response = await fetch('https://history.muffinlabs.com/date');
-        const data = await response.json();
-        const events = data.data.Events;
-        const randomEvent = events[Math.floor(Math.random() * events.length)];
-
-        const historyDiv = document.getElementById('history-event');
-        historyDiv.innerHTML = `<strong>${randomEvent.year}:</strong> ${randomEvent.text}`;
-      } catch (error) {
-        document.getElementById('history-event').textContent = '⚠️ Failed to retrieve event.';
-        console.error(error);
-      }
-    }
-  </script>
-
-
-  <section class="date-range">
-<div id="history-event"></div>
-    <h2>Travel Date Range</h2>
-    <p>*1800s–1900s</p>
-    <input type="range" min="1800" max="1900" value="1850" />
   </section>
 
-  <section class="dropdown">
-    <label for="parameter">Choose a parameter:</label><br />
-    <select id="parameter">
-      <option value="birth">Famous Birth</option>
-      <option value="event">Historical Event</option>
-    </select>
-  </section>
-  <script>
-  const weatherDiv = document.getElementById('weather');
-  const leftClock = document.getElementById('leftClock');
+    <button onclick="fetchHistoryEvent()">Reveal History at random</button>
+    <div id="history-event">Awaiting transmission...</div>
 
-  fetch('https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99277&current=temperature_2m,wind_speed_10m,precipitation&temperature_unit=fahrenheit')
-    .then(response => response.json())
-    .then(data => {
-      const temp = data.current.temperature_2m;
-      const wind = data.current.wind_speed_10m;
-      const rain = data.current.precipitation;
 
-      leftClock.textContent = `🌡️ ${temp} °F | 💨 ${wind} mph | 🌧️ ${rain} in`;
-    })
-    .catch(error => {
-      weatherDiv.textContent = 'Error fetching weather';
-      console.error(error);
-    });
-</script>
-<script>
-  const centerClock = document.getElementById('centerClock');
 
-  const now = new Date();
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDate = now.toLocaleDateString('en-US', options);
 
-  centerClock.innerHTML = `🕰️ ${formattedDate.replace(',', '<br>')}`;
-</script>
-<script>
-  function rotateHand(element, degrees) {
-    element.style.transform = `rotate(${degrees}deg)`;
-  }
+    <div class="chrono-nav">
+      <a href="past.html" class="chrono-btn">Past</a>
+      <a href="present.html" class="chrono-btn">Present</a>
+      <a href="future.html" class="chrono-btn">Future</a>
+    </div>
 
-  // Grab the hand elements
-  const hourHand = document.querySelector('.hour-hand');
-  const minuteHand = document.querySelector('.minute-hand');
-  const secondHand = document.querySelector('.second-hand');
 
-  // Get current time
-  const nowClock = new Date();
-  const hours = nowClock.getHours() % 12;
-  const minutes = nowClock.getMinutes();
-  const seconds = nowClock.getSeconds();
 
-  // Rotate each hand
-  rotateHand(hourHand, hours * 30);      // 360° / 12 hours
-  rotateHand(minuteHand, minutes * 6);   // 360° / 60 minutes
-  rotateHand(secondHand, seconds * 6);   // 360° / 60 seconds
-</script>
+
+    <script src="assets/js/API.js"></script>
+
+  </body>
+
+  <footer> Atlas School CS1300 group project ChronoVoyager</footer>
 </body>
-</body>
+
 </html>

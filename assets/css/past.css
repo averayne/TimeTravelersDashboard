@@ -1,0 +1,35 @@
+/* Fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&family=Monsieur+La+Doulaise&display=swap');
+
+.almendra-sc-regular {
+  font-family: "Almendra SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.monsieur-la-doulaise-regular {
+  font-family: "Monsieur La Doulaise", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Color Scheme */
+:root {
+    --color-bg: #1A0D02;
+    --color-primary: #8d6128;
+    --color-accent: #49270A;
+    --color-light: #0F1422;
+
+    background-color: var(--color-bg);
+}
+
+
+body {
+    color:#8d6128;
+}
+
+
+
+
+

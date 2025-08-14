@@ -3,7 +3,6 @@ body {
   color: #f0e6d2;
   font-family: 'Cinzel', serif;
   background-image: url('/assets/images/apibkgrnd.jpg');
-  /* Replace with actual image */
   background-size: cover;
   background-attachment: fixed;
 }
@@ -112,4 +111,15 @@ select {
 .api-output h2 {
   text-align: center;
 }
+ #history-event {
+      margin-top: 1em;
+      padding: 1em;
+      background: #222;
+      color: #eee;
+      border-radius: 8px;
+    }
+    footer {
+  margin-top: 80px; /* or padding-top */
+}
+
 

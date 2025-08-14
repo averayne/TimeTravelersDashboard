@@ -61,3 +61,8 @@ function displayRates(rates) {
 
   output.appendChild(list);
 }
+document.getElementById('event-output').innerHTML = `
+  <h3>${title}</h3>
+  <p><em>${author}</em></p>
+  <p>${desc}</p>
+`;

@@ -1,43 +1,140 @@
+.event-section #event-output {
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.weather-section #weather-output {
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.currency-section #currency-output {
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
 body {
-    background: url('../Images/steampunkv2.jpg');
+    background: url('../Images/presentbackground.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
     height: 100vh;
 }
+
+body::before {
+    content: "";
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(27, 25, 25, 0.1);
+    z-index: -1;
+}
+
 h1 {
     color: rgb(177, 130, 13);
     font-family: 'Almendra SC', serif;
     margin: 0;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+h1 {
+    font-size: 4rem;
+    letter-spacing: 2px
 }
 
-.event-section, .weather-section {
+.content {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+        width: 100%;
+        box-sizing: border-box;
+}
+
+.main-left {
+    flex: 2;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 2rem;
+}
+
+.main-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.side-img {
+    width: 450px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+    object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+    .main-right {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
+    margin-top: 2rem;
+    }
+
+    .side-img {
+        width: 80px;
+        margin: 0 0.3rem;
+    }
+}
+
+.event-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-left: 0;
+    margin-right: auto;
+    width: 100%;
+}
+.weather-section {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-right: 0;
+    margin-left: auto;
+    width: 100%;
 }
 .currency-section {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-left: 0;
+    margin-right: auto;
+    width: 100%;
 }
 
 .output-box {
-    background: #8f9daf;
+    background: #c2bbb4;
     border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(121, 58, 58, 0.08);
     padding: 1.2rem 1.5rem;
     margin-top: 0.5rem;
     min-width: 260px;
@@ -45,14 +142,19 @@ h1 {
     max-width: 400px;
     word-break: break-word;
 }
+.output-box {
+    font-family: 'Almendra SC', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
 
 #load-event, #load-weather, #load-currency {
     background: rgb(177, 130, 13);
     color: #f5f0f0;
     font-family: 'Almendra SC', serif;
-    font-size: 1.1rem;
-    padding: 0.6rem 1.8rem;
-    border: none;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border: red;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(99, 52, 8, 0.08);
@@ -99,7 +201,7 @@ h1 {
     border-radius: 8px;
     border: none;
     background: #b1820d;
-    color: #fff;
+    color: #070707;
     cursor: pointer;
     transition: background 0.2s;
 }

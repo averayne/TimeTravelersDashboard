@@ -9,6 +9,7 @@ body {
 h1 {
     color: rgb(177, 130, 13);
     font-family: 'Almendra SC', serif;
+    margin: 0;
 }
 
 .content {
@@ -26,10 +27,28 @@ h1 {
     align-items: flex-start;
     gap: 1rem;
 }
+.currency-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
 
-#load-event, #load-weather {
-    background: #1e88e5;
-    color: #fff;
+.output-box {
+    background: #8f9daf;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.2rem 1.5rem;
+    margin-top: 0.5rem;
+    min-width: 260px;
+    min-height: 48px;
+    max-width: 400px;
+    word-break: break-word;
+}
+
+#load-event, #load-weather, #load-currency {
+    background: rgb(177, 130, 13);
+    color: #f5f0f0;
     font-family: 'Almendra SC', serif;
     font-size: 1.1rem;
     padding: 0.6rem 1.8rem;
@@ -39,8 +58,8 @@ h1 {
     box-shadow: 0 2px 8px rgba(99, 52, 8, 0.08);
     transition: background 0.2s, transform 0.2s;
 }
-#load-event:hover, #load-weather:hover {
-    background: #1565c0;
+#load-event:hover, #load-weather:hover, #load-currency:hover {
+    background: #03101f;
     transform: translateY(-2px) scale(1.04);
 }
 
@@ -53,9 +72,8 @@ h1 {
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
-        background: rgba(255, 255, 255, 0.2);
+        background: transparent;
         padding: 1rem 0;
-        backdrop-filter: blur(4px);
         z-index: 100;
         flex-wrap: wrap;
         box-sizing: border-box;

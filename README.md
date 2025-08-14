@@ -4,6 +4,8 @@ Chronicles of the ChronoVoyoger
 
 **Time Traveler’s Dashboard** is a fun, interactive website where users can explore the past, present, and future through a steampunk-inspired interface. Powered by APIs, gears, and imagination, each section offers a unique experience tied to a specific time period.
 
+#Website Link: https://averayne.github.io/TimeTravelersDashboard/
+
 ## Pages
 
 - **Control Center**: A central dashboard that lets users set their destination and "travel" through time.

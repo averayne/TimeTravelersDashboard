@@ -11,20 +11,29 @@
   </style>
 </head>
 <body>
-  <section class="api-output">
-    <h2>Live in Tulsa</h2>
-    <div id="weather">Loading...</div>
-    </section>
+  
   </section>
   <header>
-    <h1>🕰️ ChronoVoyager</h1>
+    <h1>ChronoVoyager</h1>
     <p>Embark on a journey through time powered by code</p>
   </header>
+<div class="header-spacer"> </div>
+  <section class="api-output">
+    <h2>Live in Tulsa</h2>
+ 
+    
+    </section>
 
   <section class="clock-container">
   <div class="circle" id="leftClock"></div>
+
   <div class="circle" id="centerClock"></div>
+ 
+
+  
   <div class="circle" id="spinningClock">
+   
+
     <div class="clock-face">
       <div class="hour-hand"></div>
       <div class="minute-hand"></div>
@@ -47,7 +56,7 @@
   </style>
 </head>
 <body>
-  <button onclick="fetchHistoryEvent()">Reveal History</button>
+  <button onclick="fetchHistoryEvent()">Reveal History at random</button>
   <div id="history-event">Awaiting transmission...</div>
 
   <script>
@@ -68,20 +77,13 @@
   </script>
 
 
-  <section class="date-range">
-<div id="history-event"></div>
-    <h2>Travel Date Range</h2>
-    <p>*1800s–1900s</p>
-    <input type="range" min="1800" max="1900" value="1850" />
-  </section>
+ <div class="chrono-nav">
+  <a href="past.html" class="chrono-btn">Past</a>
+  <a href="present.html" class="chrono-btn">Present</a>
+  <a href="future.html" class="chrono-btn">Future</a>
+</div>
 
-  <section class="dropdown">
-    <label for="parameter">Choose a parameter:</label><br />
-    <select id="parameter">
-      <option value="birth">Famous Birth</option>
-      <option value="event">Historical Event</option>
-    </select>
-  </section>
+  
   <script>
   const weatherDiv = document.getElementById('weather');
   const leftClock = document.getElementById('leftClock');
@@ -107,29 +109,37 @@
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = now.toLocaleDateString('en-US', options);
 
-  centerClock.innerHTML = `🕰️ ${formattedDate.replace(',', '<br>')}`;
+  centerClock.innerHTML = ` ${formattedDate.replace(',', '<br>')}`;
 </script>
+
+</body>
 <script>
   function rotateHand(element, degrees) {
-    element.style.transform = `rotate(${degrees}deg)`;
+    if (element) {
+      element.style.transform = `rotate(${degrees}deg)`;
+    }
   }
 
-  // Grab the hand elements
-  const hourHand = document.querySelector('.hour-hand');
-  const minuteHand = document.querySelector('.minute-hand');
-  const secondHand = document.querySelector('.second-hand');
+  function updateClockHands() {
+    const now = new Date();
 
-  // Get current time
-  const nowClock = new Date();
-  const hours = nowClock.getHours() % 12;
-  const minutes = nowClock.getMinutes();
-  const seconds = nowClock.getSeconds();
+    const hourDeg = ((now.getHours() % 12) + now.getMinutes() / 60) * 30;
+    const minuteDeg = (now.getMinutes() + now.getSeconds() / 60) * 6;
+    const secondDeg = now.getSeconds() * 6;
 
-  // Rotate each hand
-  rotateHand(hourHand, hours * 30);      // 360° / 12 hours
-  rotateHand(minuteHand, minutes * 6);   // 360° / 60 minutes
-  rotateHand(secondHand, seconds * 6);   // 360° / 60 seconds
+    const hourHand = document.querySelector('.hour-hand');
+    const minuteHand = document.querySelector('.minute-hand');
+    const secondHand = document.querySelector('.second-hand');
+
+    rotateHand(hourHand, hourDeg);
+    rotateHand(minuteHand, minuteDeg);
+    rotateHand(secondHand, secondDeg);
+  }
+
+  updateClockHands(); // Initial call
+  setInterval(updateClockHands, 1000); // Update every second
 </script>
+<footer> this is the foote</footer>
 </body>
-</body>
+
 </html>

@@ -23,13 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateClockHands();
   setInterval(updateClockHands, 1000);
+
 });
 
-// Initial call to set hands immediately
-//updateClockHands();
-
-// Update every second
-setInterval(updateClockHands, 1000);
 
 
 async function fetchHistoryEvent() {

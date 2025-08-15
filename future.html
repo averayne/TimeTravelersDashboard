@@ -1,50 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Future Page</title>
-    <link rel="stylesheet" href="assets/css/future.css">
-  </head>
-  <body>
-    <header><h1>What Does The Future Hold?</h1>
-     <label for="yearSelect">Select Year:</label>
-      <select id="yearSelect">
-        <option value="2026">2026</option>
-        <option value="2030">2030</option>
-        <option value="2035">2035</option>
-        <option value="2040">2040</option>
-        <option value="2045">2045</option>
-      </select>
-    </header>
-    <h2>The Future</h2>
-     <div class="future-event-container" id="events">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Future Page</title>
+  <link rel="stylesheet" href="assets/css/future.css">
+</head>
+
+<body>
+  <header>
+    <h1>What Does The Future Hold?</h1>
+  </header>
+  <div style="text-align: center; margin: 2rem;">
+    <button id="toggleSpotifyBtn">Play Star Wars Soundtrack</button>
+  </div>
+  <iframe id="spotifyPlayer" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXaUaRhCgtpCo" width="300"
+    height="380" frameborder="0" allow="encrypted-media" style="opacity: 0.5; pointer-events: none;">
+  </iframe>
+  <h2>The Future</h2>
+  <div class="future-event-container" id="events">
+    <div class="card">
+      <img src="assets/Images/Asteroid.jpg" alt="Asteroid Impact">
+      <div class="card-description"> In 2029, a near-Earth asteroid grazed the Pacific Ocean, triggering a global
+        collaboration to build planetary defense systems.</div>
+    </div>
+    <div class="card"> <img src="assets/Images/Alien-Trade.jpg" alt="Alien Trade">
+      <div class="card-description"> In 2035,Interstellar trade agreements signed with Zortakian Federation.</div>
+    </div>
+    <div class="card">
+      <img src="assets/Images/Alien-newpaper.jpg" alt="Alien Encounter">
+      <div class="card-description"> In 2034, peaceful alien visitors made first contact in Geneva, sharing advanced
+        technology with Earth scientists.</div>
+    </div>
+
+    <div class="card">
+      <img src="assets/Images/Mars.jpg" alt="Mars">
+      <div class="card-description"> By 2042, the first human colony on Mars was established, hosting 5,000 residents in
+        bio-domes.</div>
+    </div>
+    <div class="famous-people-container" id="people">
+      <div class="famous-people-container">
         <div class="card">
+
+          <img src="assets/Images/Ari-Lu.jpg" alt="Ari Lumen">
+          <div class="card-description"> Ari Lumen — Nobel laureate physicist who developed sustainable fusion cores in
+            2032.</div>
+        </div>
+
         <img src="./assets/Images/Asteroid.jpg" alt="Asteroid Impact">
         <div class="card-description"> In 2029, a near-Earth asteroid grazed the Pacific Ocean, triggering a global collaboration to build planetary defense systems.</div>
       </div>
 
-      <div class="card">
-        <img src="assets/Images/Alien-newpaper.jpg" alt="Alien Encounter">
-        <div class="card-description"> In 2034, peaceful alien visitors made first contact in Geneva, sharing advanced technology with Earth scientists.</div>
+
+        <div class="card">
+          <img src="assets/Images/DrZane.jpg" alt="Dr. Mira Zane">
+          <div class="card-description"> Dr. Mira Zane — Geneticist who led the alien-human DNA cooperative study in
+            2038.</div>
+        </div>
+
+        <div class="card">
+          <img src="assets/Images/Zane-Tech.jpg" alt="Zane Tech">
+          <div class="card-description"> Zane Tech, an AI-human hybrid, revolutionizes planetary data science.</div>
+        </div>
+
+        <div class="card">
+          <img src="assets/Images/Skyer.jpg" alt="Captain Skyler">
+          <div class="card-description"> Captain Skyler — The first human to pilot a warp-speed vessel beyond the Solar
+            System (2045).</div>
+        </div>
       </div>
 
-      <div class="card">
-        <img src="assets/Images/Mars.jpg" alt="Mars">
-        <div class="card-description"> By 2042, the first human colony on Mars was established, hosting 5,000 residents in bio-domes.</div>
-     </div>
-     <div class="famous-people-container" id="people">
-        <div class="famous-people-container">
-      <div class="card">
-        <img src="assets/Images/Ari-Lu.jpg" alt="Ari Lumen">
-        <div class="card-description"> Ari Lumen — Nobel laureate physicist who developed sustainable fusion cores in 2032.</div>
-      </div>
-
-      <div class="card">
-        <img src="assets/Images/DrZane.jpg" alt="Dr. Mira Zane">
-        <div class="card-description"> Dr. Mira Zane — Geneticist who led the alien-human DNA cooperative study in 2038.</div>
-      </div>
 
       <div class="card">
         <img src="assets/Images/Skyer.jpg" alt="Captain Skyler">
@@ -57,9 +84,18 @@
     <button class="nav-btn" onclick="navigateTo('index.html')">Home</button>
     <button class="nav-btn" onclick="navigateTo('past.html')">Past</button>
     <button class="nav-btn" onclick="navigateTo('present.html')">Present</button>
-   
 
-  </nav>
-    <script src="assets/js/script.js"></script>
-  </body>
+
+
+      <nav class="navigation">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="past.html" class="nav-btn">Past</a>
+        <a href="present.html" class="nav-btn">Present</a>
+      </nav>
+
+
+      </nav>
+      <script src="assets/js/future.js"></script>
+</body>
+
 </html>

@@ -71,6 +71,52 @@ h2 {
 }
 
 .navigation {
+
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: rgba(26, 26, 26, 0.7); 
+  border-top: 2px solid #bb6f33;
+  border-bottom: 2px solid #bb6f33;
+  box-shadow: 0 0 15px rgba(255, 179, 71, 0.3);
+  border-radius: 10px;
+}
+
+.nav-btn {
+  background-color: #2a2a2a;
+  color: #f0e6d2;
+  border: 2px solid #bb6f33;
+  padding: 0.6rem 1.2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(187, 111, 51, 0.3);
+}
+
+.nav-btn:hover {
+  background-color: #bb6f33;
+  color: #1a1a1a;
+  box-shadow: 0 0 18px #ffb347;
+  transform: scale(1.05);
+}
+#toggleSpotifyBtn{
+   position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#spotifyPlayer{
+     position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: #333;
+
+
     position: fixed;
     left: 0;
     bottom: 0;

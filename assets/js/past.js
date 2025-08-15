@@ -151,7 +151,7 @@ function renderFigure(container, year, person) {
   }
   container.innerHTML = `
     <h3>${escapeHTML(person.title)}</h3>
-    <img src="assets/images/placeholder-person.png"
+    <img src="assets/Images/placeholder-person.png"
          alt="${escapeAttr(person.title)}"
          style="max-width:200px; display:block; margin:0.5rem 0;">
     <p><strong>About:</strong> ${escapeHTML(

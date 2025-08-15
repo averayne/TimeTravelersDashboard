@@ -1,9 +1,10 @@
 /* Import Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Smythe&display=swap");
 
 :root {
   --box-height: clamp(260px, 38vh, 520px;);
@@ -22,7 +23,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: #a27c3c;
-  font-family: Arial, sans-serif;
+  font-family: "Smythe", system-ui;
+  font-size: 1.25rem;
 }
 
 /* Header */
@@ -39,7 +41,7 @@ body {
 }
 
 .past-title {
-  font-family: "Cinzel", serif;
+  font-family: "Smythe", system-ui;
   font-size: clamp(2.4rem, 8vw, 7rem);
   margin: 0;
 }
@@ -66,13 +68,72 @@ body {
   display: block;
   margin: 20px auto;
   padding: 10px 12px;
-  font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.08);
+  font-size: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
   color: #a27c3c;
   border: 1px solid #a27c3c;
   border-radius: 8px;
   text-align: center;
+  font-family: "Smythe", system-ui;
 }
+
+select {
+  background-color: #1a0d02;
+  color: #a27c3c;
+  border: 1px solid #a27c3c;
+  padding: 8px 12px;
+  font-size: 20px;
+  font-family: "Smythe", system-ui;
+  border-radius: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Make dropdown arrow gold */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10"><polygon points="0,0 14,0 7,10" fill="%23c9a64d"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Hover effect */
+select:hover {
+  border-color: #a27c3c;
+  box-shadow: 0 0 5px #a27c3c;
+}
+
+/* Focus effect */
+select:focus {
+  outline: none;
+  border-color: #a27c3c;
+  box-shadow: 0 0 8px #a27c3c;
+}
+
+/* Style Dropdown */
+option {
+  background-color: #1a0d02;
+  color: #a27c3c;
+}
+
+select::-webkit-scrollbar {
+  width: 10px;
+}
+select::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+select::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #caa552, #a26a2a);
+  border-radius: 10px;
+  border: 1px solid #6e5320;
+}
+
+select {
+  scrollbar-width: thin;
+  scrollbar-color: #caa552 rgba(255, 255, 255, 0.06);
+}
+
+
+
 
 /* Event and Person box */
 .content-row {
@@ -141,7 +202,7 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid #a27c3c;
   border-radius: 10px;
-  color: #A27C3C;
+  color: #a27c3c;
   overflow: auto;
 }
 
@@ -159,6 +220,7 @@ body {
   margin: 24px 0;
   display: flex;
   justify-content: center;
+  padding-bottom: 50px;
 }
 
 .past-navigation-bar nav {
@@ -168,23 +230,31 @@ body {
   justify-content: center;
 }
 
-.past-navigation-bar nav a{
+.past-navigation-bar nav a {
   display: inline-block;
   padding: 10px 16px;
-  color: #A27C3C;
+  color: #a27c3c;
   text-decoration: none;
-  border: 1px solid #A27C3C;
+  border: 1px solid #a27c3c;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(202,165,82,0.15), rgba(162,106,42,0.15));
-  transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
-  box-shadow: 0 4px 14px rgba(0,0,0,.3);
+  background: linear-gradient(
+    180deg,
+    rgba(202, 165, 82, 0.15),
+    rgba(162, 106, 42, 0.15)
+  );
+  transition: transform 0.08s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.past-navigation-bar nav a:hover{
-  background: linear-gradient(180deg, rgba(202,165,82,0.25), rgba(162,106,42,0.25));
+.past-navigation-bar nav a:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(202, 165, 82, 0.25),
+    rgba(162, 106, 42, 0.25)
+  );
   transform: translateY(-1px);
 }
-.past-navigation-bar nav a:active{
+.past-navigation-bar nav a:active {
   transform: translateY(0);
 }
 

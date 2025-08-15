@@ -9,7 +9,7 @@ Chronicles of the ChronoVoyoger
 ## Pages
 
 - **Control Center**: A central dashboard that lets users set their destination and "travel" through time.
-- **Past**: Choose a historical year to explore famous events, people, and moments in time.
+- **Past**: Choose a year to explore historical events, people, and a random quote. This page has a dropdown selector that will allow you to select your year. It uses Ninja API for the historical event and random quote and Wikipedia for the historical person. This page includes spinning elements and transitions when hovering over the bottom navigation buttons. 
 - **Present**: View real-time news, weather, and currency data using live APIs.
 - **Future**: Generate fun, fictional predictions of the future.
 

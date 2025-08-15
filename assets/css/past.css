@@ -68,7 +68,7 @@ body {
   display: block;
   margin: 20px auto;
   padding: 10px 12px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background-color: rgba(0, 0, 0, 0.4);
   color: #a27c3c;
   border: 1px solid #a27c3c;
@@ -81,7 +81,7 @@ select {
   color: #a27c3c;
   border: 1px solid #a27c3c;
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Smythe", system-ui;
   border-radius: 6px;
   appearance: none;

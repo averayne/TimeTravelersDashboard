@@ -1,10 +1,10 @@
 /* Import Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Smythe&display=swap");
 
 :root {
   --box-height: clamp(260px, 38vh, 520px;);
@@ -23,7 +23,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: #a27c3c;
-  font-family: Arial, sans-serif;
+  font-family: "Smythe", system-ui;
 }
 
 /* Header */
@@ -73,7 +73,6 @@ body {
   border: 1px solid #a27c3c;
   border-radius: 8px;
   text-align: center;
-
 }
 
 /* Event and Person box */
@@ -143,7 +142,7 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   border: 1px solid #a27c3c;
   border-radius: 10px;
-  color: #A27C3C;
+  color: #a27c3c;
   overflow: auto;
 }
 
@@ -170,23 +169,31 @@ body {
   justify-content: center;
 }
 
-.past-navigation-bar nav a{
+.past-navigation-bar nav a {
   display: inline-block;
   padding: 10px 16px;
-  color: #A27C3C;
+  color: #a27c3c;
   text-decoration: none;
-  border: 1px solid #A27C3C;
+  border: 1px solid #a27c3c;
   border-radius: 10px;
-  background: linear-gradient(180deg, rgba(202,165,82,0.15), rgba(162,106,42,0.15));
-  transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
-  box-shadow: 0 4px 14px rgba(0,0,0,.3);
+  background: linear-gradient(
+    180deg,
+    rgba(202, 165, 82, 0.15),
+    rgba(162, 106, 42, 0.15)
+  );
+  transition: transform 0.08s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.past-navigation-bar nav a:hover{
-  background: linear-gradient(180deg, rgba(202,165,82,0.25), rgba(162,106,42,0.25));
+.past-navigation-bar nav a:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(202, 165, 82, 0.25),
+    rgba(162, 106, 42, 0.25)
+  );
   transform: translateY(-1px);
 }
-.past-navigation-bar nav a:active{
+.past-navigation-bar nav a:active {
   transform: translateY(0);
 }
 

@@ -76,6 +76,46 @@ body {
   text-align: center;
 }
 
+select {
+  background-color: #1a0d02;
+  color: #a27c3c;
+  border: 1px solid #a27c3c;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-family: "Smythe", system-ui;
+  border-radius: 6px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Make dropdown arrow gold */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10"><polygon points="0,0 14,0 7,10" fill="%23c9a64d"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+/* Hover effect */
+select:hover {
+  border-color: #a27c3c;
+  box-shadow: 0 0 5px #a27c3c;
+}
+
+/* Focus effect */
+select:focus {
+  outline: none;
+  border-color: #a27c3c;
+  box-shadow: 0 0 8px #a27c3c;
+}
+
+/* Style Dropdown */
+option {
+  background-color: #1a0d02;
+  color: #a27c3c;
+}
+
+
+
+
 /* Event and Person box */
 .content-row {
   display: flex;

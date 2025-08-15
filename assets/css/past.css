@@ -39,7 +39,7 @@ body {
 }
 
 .past-title {
-  font-family: "Cinzel", serif;
+  font-family: "Cedarville Cursive", cursive;
   font-size: clamp(2.4rem, 8vw, 7rem);
   margin: 0;
 }
@@ -67,11 +67,12 @@ body {
   margin: 20px auto;
   padding: 10px 12px;
   font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #a27c3c;
   border: 1px solid #a27c3c;
   border-radius: 8px;
   text-align: center;
+
 }
 
 /* Event and Person box */

@@ -52,7 +52,7 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=36.15398&longitude=-95.99
     const wind = data.current.wind_speed_10m;
     const rain = data.current.precipitation;
 
-    leftClock.textContent = `🌡️ ${temp} °F | 💨 ${wind} mph | 🌧️ ${rain} in`;
+    leftClock.textContent = `🌡️ ${temp} °F |💨 ${wind} mph |🌧️ ${rain} in`;
   })
   .catch(error => {
     weatherDiv.textContent = 'Error fetching weather';

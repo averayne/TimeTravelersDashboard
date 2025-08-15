@@ -14,9 +14,9 @@ header {
   border: 2px solid #f0c674;
   border-radius: 8px;
   text-align: center;
-  font-family: 'Cinzel', serif; /* or something ornate */
-  color: #f0e6c0; /* warm parchment tone */
-  text-shadow: 1px 1px 3px #000, 0 0 5px #c4a000; /* subtle glow */
+  font-family: 'Cinzel', serif; 
+  color: #f0e6c0; 
+  text-shadow: 1px 1px 3px #000, 0 0 5px #c4a000; 
 }
 
 .clock-container {
@@ -119,5 +119,5 @@ select {
       border-radius: 8px;
     }
     footer {
-  margin-top: 80px; /* or padding-top */
+  margin-top: 80px; 
 }

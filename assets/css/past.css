@@ -74,6 +74,7 @@ body {
   border: 1px solid #a27c3c;
   border-radius: 8px;
   text-align: center;
+  font-family: "Smythe", system-ui;
 }
 
 select {

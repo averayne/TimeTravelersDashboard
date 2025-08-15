@@ -1,4 +1,5 @@
-body {
+/* Base */
+body{
   margin: 0;
   font-family: 'Cinzel', serif;
   background-image: url("../Images/6qhjjk1v.png");
@@ -9,30 +10,23 @@ body {
   color: #f0e6d2;
 }
 
-header {
+header{
   padding: 1em;
-  background-color: rgba(187, 111, 51, 0.1); 
+  background-color: rgba(187, 111, 51, 0.1);
   border-bottom: 2px solid #bb6f33;
   color: #f0e6d2;
   text-align: center;
 }
 
-select {
-  padding: 0.5em;
-  background-color: #2a2a2a;
-  color: #f0e6d2;
-  border: 2px solid #bb6f33;
-  font-size: 1em;
-}
-
-h2 {
+h2{
   margin-top: 2em;
   color: #f0e6d2;
   text-shadow: 0 0 6px #bb6f33;
 }
 
+/* Cards & grids */
 .future-event-container,
-.famous-people-container {
+.famous-people-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -40,51 +34,50 @@ h2 {
   padding: 2em;
 }
 
-.card {
-  background-image: url("../Images/hologram-frame2.jpg");
-    background: rgba(26, 26, 26, 0.9); 
+.card{
+  background: rgba(26,26,26,0.9);
   border: 1px solid #bb6f33;
-  box-shadow: 0 0 12px rgba(255, 179, 71, 0.3);
+  box-shadow: 0 0 12px rgba(255,179,71,0.3);
   border-radius: 15px;
   width: 280px;
   overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform .3s, box-shadow .3s;
   backdrop-filter: blur(4px);
   color: #f0e6d2;
 }
 
-.card:hover {
+.card:hover{
   transform: scale(1.05);
   box-shadow: 0 0 18px #ffb347;
 }
 
-.card img {
+.card img{
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
 
-.card-description {
+.card-description{
   padding: 1em;
-  font-size: 0.95em;
+  font-size: .95em;
   color: #f0e6d2;
 }
 
-.navigation {
-
+/* Nav */
+.navigation{
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin: 2rem 0;
   padding: 1rem;
-  background: rgba(26, 26, 26, 0.7); 
+  background: rgba(26,26,26,0.7);
   border-top: 2px solid #bb6f33;
   border-bottom: 2px solid #bb6f33;
-  box-shadow: 0 0 15px rgba(255, 179, 71, 0.3);
+  box-shadow: 0 0 15px rgba(255,179,71,0.3);
   border-radius: 10px;
 }
 
-.nav-btn {
+.nav-btn{
   background-color: #2a2a2a;
   color: #f0e6d2;
   border: 2px solid #bb6f33;
@@ -93,69 +86,101 @@ h2 {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 15px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 8px rgba(187, 111, 51, 0.3);
+  transition: all .3s ease;
+  box-shadow: 0 0 8px rgba(187,111,51,0.3);
 }
-
-.nav-btn:hover {
+.nav-btn:hover{
   background-color: #bb6f33;
   color: #1a1a1a;
   box-shadow: 0 0 18px #ffb347;
   transform: scale(1.05);
 }
+
+
 #toggleSpotifyBtn{
-   position: sticky;
-  top: 0;
-  overflow: hidden;
-  background-color: #333;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .7rem 1.2rem;
+  border: 2px solid #bb6f33;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  color: #f0e6d2;
+  letter-spacing: .3px;
+  box-shadow: 0 0 12px rgba(255,179,71,.25), inset 0 0 8px rgba(187,111,51,.2);
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
+#toggleSpotifyBtn::before{
+  content: "▶";
+  font-size: 1.05rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgba(255,179,71,.4));
+}
+#toggleSpotifyBtn[aria-pressed="true"]::before{ content: "⏸"; }
+#toggleSpotifyBtn:hover{
+  box-shadow: 0 0 18px #ffb347, inset 0 0 10px rgba(187,111,51,.35);
+  transform: translateY(-1px);
+}
+#toggleSpotifyBtn:active{ transform: translateY(0); }
+
+
+.spotify-shell{
+  position: fixed;
+  top: 20px;           
+  left: 20px;
+  z-index: 99999;
+
+  
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+
+.spotify-shell--card{
+  background: rgba(26,26,26,.9);
+  border: 2px solid #bb6f33;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(255,179,71,.35),
+              0 0 3px rgba(255,179,71,.6) inset;
+  padding: .6rem;
+  width: 355px;          
+  height: 150px;
+}
+
+
+.spotify-shell.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 
 #spotifyPlayer{
-     position: sticky;
-  top: 0;
-  overflow: hidden;
-  background-color: #333;
-
-
-    position: fixed;
-    left: 0;
-    bottom: 0;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        background: transparent;
-        padding: 1rem 0;
-        z-index: 100;
-        flex-wrap: wrap;
-        box-sizing: border-box;
+  display: block;
+  width: 350px;
+  height: 200px;
+  border: 0;
+  border-radius: 10px;
+  opacity: 1 !important;
+  pointer-events: auto !important; 
 }
 
-@media (max-width: 600px) {
-    .navigation {
-        flex-direction: column;
 
-        gap: 0.5rem;
-        padding: 0.5rem 0;
-    }
-    .nav-btn {
-        width: 90vw;
-        font-size: 1rem;
-        padding: 0.75rem 0;
-    }
+@media (max-width: 600px){
+  .navigation{ flex-direction: column; gap: .5rem; padding: .5rem 0; }
+  .nav-btn{ width: 90vw; font-size: 1rem; padding: .75rem 0; }
+}
+@media (max-width: 480px){
+  .spotify-shell{ top: 12px; left: 12px; }
+  .spotify-shell--card{ width: 300px; }
+  #spotifyPlayer{ width: 288px; height: 360px; }
 }
 
-.nav-btn {
-    font-size: 1.1rem;
-    padding: 0.5rem 1.5rem;
-    border-radius: 8px;
-    border: none;
-    background: #b1820d;
-    color: #070707;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.nav-btn:hover {
-    background: #8a650a;
+
+@media (prefers-reduced-motion: reduce){
+  .spotify-shell{ transition: none; }
 }

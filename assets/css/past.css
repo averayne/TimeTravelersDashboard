@@ -220,6 +220,7 @@ select {
   margin: 24px 0;
   display: flex;
   justify-content: center;
+  padding-bottom: 50px;
 }
 
 .past-navigation-bar nav {

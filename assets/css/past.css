@@ -24,6 +24,7 @@ body {
   background-size: cover;
   color: #a27c3c;
   font-family: "Smythe", system-ui;
+  font-size: large;
 }
 
 /* Header */

@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
 
 :root {
   --box-height: clamp(260px, 38vh, 520px;);
@@ -39,7 +40,7 @@ body {
 }
 
 .past-title {
-  font-family: "Cedarville Cursive", cursive;
+  font-family: "Smythe", system-ui;
   font-size: clamp(2.4rem, 8vw, 7rem);
   margin: 0;
 }

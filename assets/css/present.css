@@ -1,3 +1,8 @@
+
+:root {
+    --nav-h: 64px;
+}
+
 .event-section #event-output {
     color: #000000;
     font-weight: bold;
@@ -23,6 +28,7 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     height: 100vh;
+    padding-bottom: var(--nav-h); 
 }
 
 body::before {
@@ -49,24 +55,25 @@ h1 {
 
 .content {
         display: flex;
-        flex-direction: row;
+        flex-direction: wrap;
         align-items: flex-start;
         gap: 2rem;
         margin-top: 2rem;
-        margin-bottom: 5rem;
+        padding-bottom: 1rem;
         width: 100%;
         box-sizing: border-box;
 }
 
+
 .main-left {
-    flex: 2;
+    flex: 2 1 460px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
 .main-right {
-    flex: 1;
+    flex: 1 1 260px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -111,7 +118,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     }
 
     .side-img {
@@ -189,7 +196,8 @@ h1 {
     position: fixed;
     left: 0;
     bottom: 0;
-        width: 100vw;
+        width: 100%;
+        height: var(--nav-h);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -199,9 +207,13 @@ h1 {
         z-index: 100;
         flex-wrap: wrap;
         box-sizing: border-box;
+
 }
 
 @media (max-width: 600px) {
+    :root {
+        --nav-h: 56px;
+    }
     .navigation {
         flex-direction: column;
 
@@ -214,10 +226,12 @@ h1 {
         padding: 0.75rem 0;
     }
     #load-event, #load-weather, #load-currency {
-        font-size: 1.2rem;
-        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+        padding: 0.5rem 0.85rem;
     }
 }
+
+
 
 .nav-btn {
     font-size: 1.1rem;
@@ -231,4 +245,9 @@ h1 {
 }
 .nav-btn:hover {
     background: #8a650a;
+}
+
+.side-img { 
+    height: auto; 
+    object-fit: cover; 
 }

@@ -1,14 +1,28 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+:root {
+  --box-height: clamp(260px, 38vh, 520px;);
+}
 
 /* Page Styling */
+
+html,
 body {
-  background-color: #1A0D02;
-  color: #A27C3C; 
-  font-family: Arial, sans-serif;
+  height: 100%;
+}
+body {
   margin: 0;
-  padding: 0;
+  background: #1a0d02;
+  background-image: url("../Images/past_background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #a27c3c;
+  font-family: Arial, sans-serif;
 }
 
 /* Header */
@@ -25,8 +39,8 @@ body {
 }
 
 .past-title {
-  font-family: Arial, sans-serif;
-  font-size: 7rem;
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.4rem, 8vw, 7rem);
   margin: 0;
 }
 
@@ -51,43 +65,136 @@ body {
 #year-selector {
   display: block;
   margin: 20px auto;
-  padding: 8px 12px;
+  padding: 10px 12px;
   font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #A27C3C; 
-  border: 1px solid #A27C3C; 
-  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #a27c3c;
+  border: 1px solid #a27c3c;
+  border-radius: 8px;
+  text-align: center;
 }
 
 /* Event and Person box */
 .content-row {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 20px;
   flex-wrap: wrap;
   padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .box {
-  flex: 1 1 300px;
+  flex: 1 1 480px;
+  min-width: 320px;
   background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #A27C3C; 
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #a27c3c;
   min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#historical-event {
+  overflow: auto;
+}
+
+/* Themed Scrollbar if necessary */
+#historical-event::-webkit-scrollbar {
+  width: 10px;
+}
+#historical-event::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+#historical-event::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #caa552, #a26a2a);
+  border-radius: 10px;
+  border: 1px solid #6e5320;
+}
+
+#historical-event {
+  scrollbar-width: thin;
+  scrollbar-color: #caa552 rgba(255, 255, 255, 0.06);
+}
+
+/* Box Headings */
+#historical-event h4,
+#historical-figure h3 {
+  margin: 0 0 8px 0;
+  color: #a27c3c;
 }
 
 /* Quote Box */
 #historical-quote {
-  font-family: 'Monsieur La Doulaise', cursive;
+  font-family: "Cedarville Cursive", cursive;
   font-size: 2rem;
   text-align: center;
-  margin-top: 20px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid #A27C3C; 
+  border: 1px solid #a27c3c;
   border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  color: #A27C3C;
+  overflow: auto;
+}
 
+.box-wide {
+  flex: 1 0 100%;
+  min-height: auto;
+  height: auto;
+  height: auto;
+  font-family: "Italianno", cursive;
+  font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+}
+
+/* Footer */
+.past-navigation-bar {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.past-navigation-bar nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.past-navigation-bar nav a{
+  display: inline-block;
+  padding: 10px 16px;
+  color: #A27C3C;
+  text-decoration: none;
+  border: 1px solid #A27C3C;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(202,165,82,0.15), rgba(162,106,42,0.15));
+  transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,.3);
+}
+
+.past-navigation-bar nav a:hover{
+  background: linear-gradient(180deg, rgba(202,165,82,0.25), rgba(162,106,42,0.25));
+  transform: translateY(-1px);
+}
+.past-navigation-bar nav a:active{
+  transform: translateY(0);
+}
+
+/* Responsiveness */
+@media (max-width: 700px) {
+  .gear {
+    width: 100px;
+    height: 100px;
+  }
+  .box {
+    min-width: 100%;
+  }
+}
